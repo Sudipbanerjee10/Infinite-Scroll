@@ -7,7 +7,7 @@ import Spinner from "../common/Spinner";
 import { config } from "../../config";
 
 const InfiniteQuery = () => {
-  console.log("InfiniteQuery");
+  console.log("InfiniteQuerys");
   const [moviesData, setMoviesData] = useState([]);
   const API_KEY = config.tmdb_api_key;
   const BASE_URL = config.tmdb_base_url;
