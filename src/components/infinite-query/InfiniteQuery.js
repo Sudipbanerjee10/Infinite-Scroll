@@ -1,20 +1,17 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ScrollItem from "./components/ScrollItem";
 import "./InfiniteQuery.scss";
 import { useInfiniteQuery } from "react-query";
 import Spinner from "../common/Spinner";
-import { config } from "../../config";
+import { apiClient } from "../../api-services/axios";
+import { requests } from "../../api-services/requests";
 
 const InfiniteQuery = () => {
-  console.log("InfiniteQuery");
   const [moviesData, setMoviesData] = useState([]);
-  const API_KEY = config.tmdb_api_key;
-  const BASE_URL = config.tmdb_base_url;
   const fetchData = async (page) => {
-    const result = await axios({
+    const result = apiClient({
       method: "GET",
-      baseURL: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
+      url: `${requests?.fetchTreding}&page=${page}`,
     });
     return result;
   };
@@ -34,7 +31,7 @@ const InfiniteQuery = () => {
   let temparray = [];
   data?.pages?.forEach((page) => {
     page?.data?.results.forEach((res) => {
-      if (res && Object.keys(res).length > 0) {
+      if (res && Object.keys(res)?.length > 0) {
         temparray.push(res);
       }
     });

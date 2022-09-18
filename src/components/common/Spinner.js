@@ -4,7 +4,7 @@ import "./Spinner.scss";
 const Spinner = () => {
   return (
     <div className="spinner_container">
-      <div class="spinner-border text-primary" role="status" />
+      <div className="spinner-border text-primary" role="status" />
     </div>
   );
 };
