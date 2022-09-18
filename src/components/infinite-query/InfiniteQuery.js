@@ -4,15 +4,17 @@ import ScrollItem from "./components/ScrollItem";
 import "./InfiniteQuery.scss";
 import { useInfiniteQuery } from "react-query";
 import Spinner from "../common/Spinner";
+import { config } from "../../config";
 
 const InfiniteQuery = () => {
   console.log("InfiniteQuery");
   const [moviesData, setMoviesData] = useState([]);
-  const APIKEY = "c2b61e0cbe31aef3b681d0ced4ce83f2";
+  const API_KEY = config.tmdb_api_key;
+  const BASE_URL = config.tmdb_base_url;
   const fetchData = async (page) => {
     const result = await axios({
       method: "GET",
-      baseURL: `https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=en-US&page=${page}`,
+      baseURL: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
     });
     return result;
   };
