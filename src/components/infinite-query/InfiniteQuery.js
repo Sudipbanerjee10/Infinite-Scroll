@@ -6,6 +6,7 @@ import { useInfiniteQuery } from "react-query";
 import Spinner from "../common/Spinner";
 
 const InfiniteQuery = () => {
+  console.log("InfiniteQuery");
   const [moviesData, setMoviesData] = useState([]);
   const APIKEY = "c2b61e0cbe31aef3b681d0ced4ce83f2";
   const fetchData = async (page) => {
